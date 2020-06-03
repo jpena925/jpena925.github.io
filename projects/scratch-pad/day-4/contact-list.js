@@ -34,6 +34,8 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
+
+//a function that takes in id, nameFirst and nameLast and will return these strings as key/value pairs in an object
 function makeContact(id, nameFirst, nameLast) {
    return {
        "id":id, 
@@ -41,54 +43,56 @@ function makeContact(id, nameFirst, nameLast) {
        "nameLast":nameLast};
 } 
 
-
+//a function that takes no parameters but returns an object that manages contacts in a number of ways
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
 
-    var contacts = [];
+    var contacts = []; //will hold the contacts
 
     
     return {
         // we implemented the length api for you //
         length: function() {
-            return contacts.length;
+            return contacts.length; //will return the length of contacts array
         },
         addContact: function(contact) {
-            contacts.push(contact);
+            contacts.push(contact); //a function that takes in a contact and pushes it to the contacts array
         },
-        findContact: function(fullName){
-            var names = fullName.split(" ");
-            for (var i = 0; i < contacts.length; i++){
+        findContact: function(fullName){ //a function that takes a fullname and returns the contact or undefined
+            var names = fullName.split(" "); //splits the fullName to an array to identify first and last names
+            for (var i = 0; i < contacts.length; i++){ //looping through contacts to check if first and last name match any id card
                 if (names[0] === contacts[i]["nameFirst"] && names[1] === contacts[i]["nameLast"]){
-                return contacts[i];
+                return contacts[i]; //if the first name and last name from fullName match names in the contact list, return that contact
             } 
-            } return undefined;
+            } return undefined; //otherwise, return undefined
         },
-        removeContact: function(contact){
-            for (var i = 0; i < contacts.length; i++){
-                if (contacts[i] === contact){
-                    contacts.splice(i,1);
+        removeContact: function(contact){ //function that takes in a contact and removes it from contacts array
+            for (var i = 0; i < contacts.length; i++){ //loop over the contacts array
+                if (contacts[i] === contact){ //if one of the contacts in the array is the same as the given contact,
+                    contacts.splice(i,1); //remove the contact object from it
                 }
             }
         },
+        
+        // a function that will return a list of full names taken from the contacts array
         printAllContactNames: function(){
-            var fn = [];
-            var ln = [];
+            var fn = []; //array to store first names
+            var ln = [];//array to store last names
             
-            for (var i = 0; i < contacts.length; i++){
-                fn.push(contacts[i]["nameFirst"]);
-                ln.push(contacts[i]["nameLast"]);
+            for (var i = 0; i < contacts.length; i++){ //looping over the contacts
+                fn.push(contacts[i]["nameFirst"]); //for each index, push the value of key nameFirst to the fn array
+                ln.push(contacts[i]["nameLast"]);//for each index, push the value of key nameLast to the ln array
             }
             
-            var full = [];
+            var full = []; //array to hold full names
             
-            for (var i = 0; i < contacts.length; i++){
-                full.push(fn[i] + " " + ln[i]);
+            for (var i = 0; i < contacts.length; i++){ //looping over fn and ln to create the names as one string
+                full.push(fn[i] + " " + ln[i]); //combine string values at the same index in fn and ln and push them to the full array
             }
             
-            return full.join('\n');
+            return full.join('\n'); //Join the array into a single string with the /n new line separating them
         } 
       
         
