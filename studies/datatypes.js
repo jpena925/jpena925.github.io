@@ -13,10 +13,14 @@
 
 //2. STRINGS
   //Strings are data wrapped in quotes. They can be letters, numbers or other datatypes.
+  //Characters are stored in a string at different indexes, like arrays. You can access them
+  //by writing the string and index in bracket notation. 
   
   var myName = "Jack";
   var myFavBook = "99 Bottles of Beer";
   var dog = "True";
+  
+  myName[0]; // will return "J" because J is at the zero index in the string "Jack".
   
  //all of the values assigned to these variables are examples of strings.
  

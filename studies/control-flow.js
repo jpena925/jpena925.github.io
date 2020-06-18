@@ -3,8 +3,9 @@
  *
  * Control flow refers to the order in which the computer executes code. In relation to If-then statements,
  * the control flow is essential to return the value you want. The computer will always start at the top
- * and will stop once a condition is met. In a switch statement, the computer will always read top to bottom
- * as well.
+ * and will stop once a condition is met. So, if more than one condition is true, the computer will stop 
+ * checking the conditions after the first true one in the chain. In a switch statement, 
+ * the computer will always read top to bottom as well. 
  */
  
  
@@ -22,7 +23,7 @@
  
  //2. IF-THEN
  /* If-then statements are conditionals that have multiple cases for the computer to consider. Control flow is important
-  * here because if out of order, some results may not get shown.
+  * here because if out of order, some results may not get shown. You can have unlimited else if statements.
   */
   
   
@@ -44,6 +45,7 @@
  
  //3. ELSE
  // Else is a statement you can put at the end in case no conditions are met in a conditional statement.
+ // You can only have one.
  
  /*Here, this will console.log "Don't lie, cars weren't invented yet" from the else statement because the 
   *variable car was not evaluated as true by any of the conditions.
@@ -70,6 +72,10 @@
   *it will execute the code under it. There is then an optional break that tells the computer to exit the switch statement.
   */
   
+  
+  //Switch syntax includes the word switch, a parameter and a body.
+  //The body states a case for the value, a colon and what to execute if that case matches. then a break.
+  //Use a switch statement instead of an if statement if you have many conditions or cases to help keep it shorter.
   //Here a switch statement is executed where the computer evaluates and doesn't find "piano" so executes the default and exits.
   var instrument = "piano";
   

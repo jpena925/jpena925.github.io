@@ -19,18 +19,35 @@
  
  //.toUpperCase(); changes the whole string to upper case.
  //.toLowerCase(); changes the whole string to lower case.
+ //.concat(); combines two strings together
+ //.slice(); will slice off any amount of characters you input
+ //.includes(); tells you if a string includes anything
+ //.repeat(); repeats the string any amount of times
  
+ 
+ //.toUpperCase();
+ //.toLowerCase();
  var dogName = "Theo";
  dogName.toUpperCase(); // returns "THEO"
  dogName.toLowerCase(); // returns "theo"
  
- //.length evaluates the length of a string
- dogName.length; //returns 4
  
- //.concat combines two strings together
+ //.concat() combines two strings together
  var dogLastName = "Pena";
  var dogFullName = dogName.concat(" ", dogLastName); 
  console.log(dogFullName); //returns "Theo Pena"
  
  
+ //.slice()
+ let shoe = "Nike";
+ shoe.slice(1); // returns "ike";
+ 
+ //.includes()
+ let car = "Honda Civic"
+ car.includes("Honda"); // returns true
+ 
+ 
+ //.repeat()
+ let sing = "la";
+ sing.repeat(3);// returns "lalala"
  
