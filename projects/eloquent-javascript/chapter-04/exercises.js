@@ -128,39 +128,36 @@ function nth(list, number) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function deepEqual(val1, val2) {
-  //I: two values
-  //O: true or false
-  //Edgecases: check to see if val1 and
-  
-  if (val1 === val2){
-    return true;
-  }
-  
-  if (typeof val1 === "object" && val1 !== null){
-    
-    let obj1keys = Object.keys(val1);
-    let obj2keys = Object.keys(val2);
-    
-    if(obj1keys.length === 0 && obj2keys.length === 0){
-      return true;
-    } 
-    //Use Object.keys to get array of keys
-  
-  //Iterate over o
-  for (let i = 0; i < obj1keys; i++){
-    if (obj1keys[i] !== obj2keys[i] || val1[obj1keys[i]] !== val2[obj2keys[i]]){
+  if(val1 === val2){ // check if values are generally equal
+    return true
+  } else if(typeof val1 !== "object" && typeof val2 !== "object" && val1 !== val2){ // check if 2 simple datatypes are not equal
+    return false;
+  } else if (!val1 && !val2){
+    if(val1 !== val2){
+      return false;
+    }
+  } else if (Array.isArray(val1) === true && Array.isArray(val2) === true){ // if both vals are arrays, loop over and check if their values are the same
+    for(let i = 0; i < val1.length; i++){
+      if (typeof val1[i] === typeof val1[i]){
+        return deepEqual(val1[i], val2[i]);
+      } 
+      return false;
+    }
+  } else if (typeof val1 === "object" && typeof val2 === "object" && val1 !== null && val2 !== null){ // if both values are objects 
+    // create two array of keys
+    const arrOfKeys1 = Object.keys(val1); 
+    const arrOfKeys2 = Object.keys(val2);
+    for(let i = 0; i < arrOfKeys1.length; i++){
+      // check if the keys are identical and the values are of the same type
+      if (arrOfKeys1[i] === arrOfKeys2[i] && typeof val1[arrOfKeys1[i]] === typeof val2[arrOfKeys2[i]]){
+        // recurse passing in the values of the keys as arguments
+        return deepEqual(val1[arrOfKeys1[i]], val2[arrOfKeys2[i]])
+      }
+      // if they not the same, return false
       return false;
     }
   }
-
-    
-    
-    
-    
-  } 
-  
- 
-  return false;
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

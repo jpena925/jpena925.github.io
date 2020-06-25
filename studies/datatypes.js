@@ -46,6 +46,11 @@
  var arrays = [1, true, "dog", [1,2,3], {name: "Jack", address: "Thalia"}];
  //this array includes a number, boolean, string, array and object.
  
+ //You can access an array with bracket notation like the following.
+ arrays[0]; // returns 1
+ arrays[1]; // returns true
+ arrays[2]; // returns "dog"
+ 
  //You can add to take away values from arrays by any of the following methods:
  var array = [1,2,3,4];
  //.PUSH adds to the end
